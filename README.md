@@ -1,6 +1,6 @@
 # homebridge-dyson-fan
 
-A Homebridge plugin for controlling a Dyson fan.
+A [Homebridge](https://github.com/nfarina/homebridge) plugin for controlling a Dyson fan.
 This has been tested with and works using the [Dyson Pure Cool Link™ Tower](http://www.dyson.com.au/fans-and-heaters/purifiers/dyson-pure-cool-link.aspx), but may also work with other Dyson fans.
 
 ## Example Homebridge Configuration
