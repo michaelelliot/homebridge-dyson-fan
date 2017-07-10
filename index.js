@@ -12,7 +12,7 @@ function FanAccessory(log, config) {
   var self = this;
   this.log = log;
 
-  if (typeof config.modelNumber !== 'undefined') this.modelNumber = config.modelNumber;
+  if (typeof config.model !== 'undefined') this.modelNumber = config.model;
   else this.modelNumber = '475';
 
   if (typeof config.deviceName !== 'undefined') this.deviceName = config.deviceName;
