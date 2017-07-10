@@ -1,0 +1,25 @@
+{
+  "name": "homebridge-dyson-fan",
+  "version": "0.0.1",
+  "main": "index.js",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "mqtt": "^2.6.2",
+    "promise": "^7.1.1"
+  },
+  "description": "A Homebridge plugin for controlling a [Dyson fan](http://www.dyson.com.au/fans-and-heaters/purifiers/dyson-pure-cool-link.aspx).",
+  "scripts": {},
+  "maintainers": [
+    {
+      "name": "michaelelliot",
+      "email": "michael@digital.com.au"
+    }
+  ],
+  "directories": {},
+  "devDependencies": {}
+}

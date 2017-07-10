@@ -1,0 +1,23 @@
+{
+    "bridge": {
+        "name": "HomebridgePi",
+        "username": "CD:22:AA:BB:CC:DD",
+        "port": 51826,
+        "pin": "121-11-121"
+    },
+
+    "description": "Michael's Homebridge Server",
+
+    "platforms": [],
+
+    "accessories": [
+        {
+            "accessory": "Dyson Fan",
+            "name": "Bedroom Fan",
+            "host": "192.168.1.110",
+            "model": "475",
+            "username": "NN8-AU-XXXXXXXX",
+            "password": "x"
+        }
+    ]
+}
