@@ -1,25 +1,31 @@
 {
   "name": "homebridge-dyson-fan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
+  "description": "A Homebridge plugin for controlling a Dyson fan.",
+  "license": "MIT",
   "keywords": [
     "homebridge-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michaelelliot/homebridge-dyson-fan.git"
+  },
+  "bugs": {
+    "url": "http://github.com/michaelelliot/homebridge-dyson-fan/issues"
+  },
   "engines": {
+    "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
   },
   "dependencies": {
     "mqtt": "^2.6.2",
     "promise": "^7.1.1"
   },
-  "description": "A Homebridge plugin for controlling a [Dyson fan](http://www.dyson.com.au/fans-and-heaters/purifiers/dyson-pure-cool-link.aspx).",
-  "scripts": {},
   "maintainers": [
     {
       "name": "michaelelliot",
       "email": "michael@digital.com.au"
     }
-  ],
-  "directories": {},
-  "devDependencies": {}
+  ]
 }
