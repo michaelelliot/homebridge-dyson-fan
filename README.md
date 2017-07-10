@@ -37,3 +37,7 @@ To ensure the IP address of your fan stays the same you can either change your r
 ## Notes
 
 The fan direction characteristic (`Characteristic.RotationDirection`) was used as a way to toggle the swing state on/off, since the swing state characteristic isn't present on the `Fan` service. (It exists on the `Fanv2` service, but this isn't supported in the Home app yet.)
+
+## Help
+
+If you need any help, feel free to hit me up in the [Homebridge Slack channel](https://homebridge-slackin.herokuapp.com/).
