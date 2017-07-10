@@ -1,6 +1,6 @@
 {
   "name": "homebridge-dyson-fan",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "description": "A Homebridge plugin for controlling a Dyson fan.",
   "license": "MIT",
