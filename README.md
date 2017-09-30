@@ -14,7 +14,7 @@ See also: `config-sample.json`
     "model": "475",
     "host": "192.168.1.110",
     "username": "NN8-AU-XXXXXXXX",
-    "password": "x"    
+    "password": "x"
   }
 ]
 ```
@@ -26,17 +26,13 @@ To obtain the password of your Dyson fan (which is permanently hardcoded in the 
 1. Factory reset your fan by pressing and holding the ON/OFF button for longer than 20 seconds until it starts flashing white and green.
 2. Note the `username` of your fan. This will be on a sticker on the base of your fan and will look something like: `NN8-AU-XXXXXXXX`
 3. Download an MQTT client. ([MQTT.fx](http://www.jensd.de/apps/mqttfx/) works well.)
-4. On the same computer running the MQTT client, connect to the WiFi hotspot that your fan should have created (the SSID will begin with `DYSON`). 
+4. On the same computer running the MQTT client, connect to the WiFi hotspot that your fan should have created (the SSID will begin with `DYSON`).
 5. Connect your MQTT client to the IP address of the fan. (This will be something like `192.168.1.2`.)
 6. Subscribe to the `475/initialconnection/credentials` topic which will result in the fan sending you the password. The `475` in the topic name is the model number of the fan and may be different for you depending on which fan you have. If `475` doesn't work for you, play around with different numbers above and below `475` until you find the right one, and then set the `model` field in `config.json` to this value. You'll know it's correct when the fan sends you a response with the password after subscribing to the topic.
 
 Now that you have your fan's `username` and `password`, set these fields in your `config.json` and then use the official Dyson Link app to [finalise the setup](https://www.dyson.com.au/support/dp01/dyson-purecool-link-white-silver/the-dyson-link-app/setting-up-the-dyson-link-app-getting-connected-part-1) of your fan and connect it to your home WiFi network.
 
 To ensure the IP address of your fan stays the same you can either change your router's DHCP lease duration to permanent or pin your fan's MAC address to a specific IP via your router's DHCP reservation feature. Use this IP address in the `host` field of the `config.json` file.
-
-## Notes
-
-The fan direction characteristic (`Characteristic.RotationDirection`) was used as a way to toggle the swing state on/off, since the swing state characteristic isn't present on the `Fan` service. (It exists on the `Fanv2` service, but this isn't supported in the Home app yet.)
 
 ## Help
 
