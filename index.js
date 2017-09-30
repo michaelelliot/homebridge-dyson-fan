@@ -124,7 +124,6 @@ FanAccessory.prototype.getFanState = function() {
 
   self.requestStatusPromise = new Promise(function (fulfill, reject) {
     self.requestStatusPromiseFulfill = fulfill;
-    
   });
 
   self.requestCurrentState();
@@ -139,9 +138,9 @@ FanAccessory.prototype.identify = function(callback) {
 
 FanAccessory.prototype.getServices = function() {
 
-  this.fanService = new Service.Fan();
+  this.fanService = new Service.Fanv2();
   this.fanService.setCharacteristic(Characteristic.Name, 'Fan');
-  this.fanService.getCharacteristic(Characteristic.RotationDirection)
+  this.fanService.getCharacteristic(Characteristic.SwingMode)
     .on('get', this.getSwingMode.bind(this))
     .on('set', this.setSwingMode.bind(this));
   this.fanService.getCharacteristic(Characteristic.On)
@@ -300,7 +299,7 @@ FanAccessory.prototype.getSwingMode = function(callback) {
 FanAccessory.prototype.setSwingMode = function(value, callback) {
   this.log("Turning " + (value === Characteristic.SwingMode.SWING_ENABLED ? "on" : "off") + " swing mode.");
   this.state.swingMode = value;
- 
+
   this.client.publish(this.mqttCommandChannel, JSON.stringify({
     "msg": "STATE-SET",
     "time": new Date().toISOString(),
