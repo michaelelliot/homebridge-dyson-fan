@@ -24,7 +24,7 @@ See also: `config-sample.json`
 To obtain the password of your Dyson fan (which is permanently hardcoded in the fan itself), you'll need to use an MQTT client to connect to the fan's MQTT server and discover it by subscribing to a particular topic. (This is how Dyson's smartphone app bootstraps authentication during the initial setup of the Dyson Link app.)
 
 1. Factory reset your fan by pressing and holding the ON/OFF button for longer than 20 seconds until it starts flashing white and green.
-2. Note the `username` of your fan. This will be on a sticker on the base of your fan and will look something like: `NN8-AU-XXXXXXXX`
+2. Note the `username` of your fan. This will be on a sticker on the base of your fan and will look something like: `NN8-AU-XXXXXXXX`.
 3. Download an MQTT client. ([MQTT.fx](http://www.jensd.de/apps/mqttfx/) works well.)
 4. On the same computer running the MQTT client, connect to the WiFi hotspot that your fan should have created (the SSID will begin with `DYSON`).
 5. Connect your MQTT client to the IP address of the fan. (This will be something like `192.168.1.2`.)
@@ -36,4 +36,4 @@ To ensure the IP address of your fan stays the same you can either change your r
 
 ## Help
 
-If you need any help, feel free to hit me up in the [Homebridge Slack channel](https://homebridge-slackin.herokuapp.com/).
+If you need any help, feel free to reach out to me on [Twitter](https://twitter.com/michaelelliot).
