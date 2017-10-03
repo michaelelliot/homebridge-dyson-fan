@@ -143,7 +143,7 @@ FanAccessory.prototype.getServices = function() {
   this.fanService.getCharacteristic(Characteristic.SwingMode)
     .on('get', this.getSwingMode.bind(this))
     .on('set', this.setSwingMode.bind(this));
-  this.fanService.getCharacteristic(Characteristic.On)
+  this.fanService.getCharacteristic(Characteristic.Active)
     .on('get', this.getOn.bind(this))
     .on('set', this.setOn.bind(this));
   this.fanService.getCharacteristic(Characteristic.RotationSpeed)
