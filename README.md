@@ -10,6 +10,7 @@ See also: `config-sample.json`
 "accessories": [
   {
     "accessory": "Dyson Fan",
+    "homeKitFanType": "Fan",
     "name": "Bedroom Fan",
     "model": "475",
     "host": "192.168.1.110",
@@ -33,6 +34,10 @@ To obtain the password of your Dyson fan (which is permanently hardcoded in the 
 Now that you have your fan's `username` and `password`, set these fields in your `config.json` and then use the official Dyson Link app to [finalise the setup](https://www.dyson.com.au/support/dp01/dyson-purecool-link-white-silver/the-dyson-link-app/setting-up-the-dyson-link-app-getting-connected-part-1) of your fan and connect it to your home WiFi network.
 
 To ensure the IP address of your fan stays the same you can either change your router's DHCP lease duration to permanent or pin your fan's MAC address to a specific IP via your router's DHCP reservation feature. Use this IP address in the `host` field of the `config.json` file.
+
+## Notes
+
+There are currently two HomeKit fan types: `Fan` and `Fanv2`. The `Fanv2` type will only work on iOS 11 and if used, the fan won't appear in the accessory list in the Home app on iOS 10. For maximum compatibility use the `Fan` type in the `homeKitFanType` config field. This is also currently the default value for this field if it's not specified.
 
 ## Help
 

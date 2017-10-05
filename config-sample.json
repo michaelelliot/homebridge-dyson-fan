@@ -13,6 +13,7 @@
     "accessories": [
         {
             "accessory": "Dyson Fan",
+            "homeKitFanType": "Fan",
             "name": "Bedroom Fan",
             "host": "192.168.1.110",
             "model": "475",

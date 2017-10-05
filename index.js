@@ -20,6 +20,11 @@ function FanAccessory(log, config) {
 
   if (typeof config.deviceModel !== 'undefined') this.deviceModel = config.deviceModel;
   else this.deviceModel = '';
+  
+  if (typeof config.homeKitFanType !== 'undefined') this.homeKitFanType = config.homeKitFanType;
+  else this.homeKitFanType = 'Fan';
+  if (this.homeKitFanType !== 'Fan' && this.homeKitFanType !== 'Fanv2') throw("Unsupported HomeKit fan type '" + this.homeKitFanType + "'. Only 'Fan' or 'Fanv2' types supported for 'homeKitFanType' config field.");
+  this.log("Using HomeKit fan type: " + this.homeKitFanType);
 
   this.name = config.name;
   this.mqttCommandChannel = this.modelNumber + "/" + config.username + "/command";
@@ -138,14 +143,23 @@ FanAccessory.prototype.identify = function(callback) {
 
 FanAccessory.prototype.getServices = function() {
 
-  this.fanService = new Service.Fanv2();
+  if (this.homeKitFanType === 'Fan') {
+    this.fanService = new Service.Fan();
+    this.fanService.getCharacteristic(Characteristic.On)
+      .on('get', this.getOn.bind(this))
+      .on('set', this.setOn.bind(this));
+  } else if (this.homeKitFanType === 'Fanv2') {
+    this.fanService = new Service.Fanv2();
+    this.fanService.getCharacteristic(Characteristic.Active)
+      .on('get', this.getOn.bind(this))
+      .on('set', this.setOn.bind(this));
+  }
+
   this.fanService.setCharacteristic(Characteristic.Name, 'Fan');
   this.fanService.getCharacteristic(Characteristic.SwingMode)
     .on('get', this.getSwingMode.bind(this))
     .on('set', this.setSwingMode.bind(this));
-  this.fanService.getCharacteristic(Characteristic.Active)
-    .on('get', this.getOn.bind(this))
-    .on('set', this.setOn.bind(this));
+
   this.fanService.getCharacteristic(Characteristic.RotationSpeed)
     .setProps({
       minValue: 0,
