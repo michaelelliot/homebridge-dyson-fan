@@ -1,4 +1,5 @@
-var mqtt = require('mqtt')
+var mqtt = require('mqtt');
+const crypto = require('crypto');
 var Promise = require('promise');
 var Service, Characteristic;
 
@@ -47,7 +48,7 @@ function FanAccessory(log, config) {
 
   this.client = mqtt.connect('mqtt://' + config.host, {
     username: config.username,
-    password: config.password
+    password: crypto.createHash('sha512').update(config.password, "utf8").digest("base64")
   });
 
   this.client.on('connect', function () {
