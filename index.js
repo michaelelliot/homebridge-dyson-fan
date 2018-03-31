@@ -1,6 +1,6 @@
-var mqtt = require('mqtt');
+const mqtt = require('mqtt');
 const crypto = require('crypto');
-var Promise = require('promise');
+const Promise = require('promise');
 var Service, Characteristic;
 
 module.exports = function(homebridge) {
@@ -21,7 +21,7 @@ function FanAccessory(log, config) {
 
   if (typeof config.deviceModel !== 'undefined') this.deviceModel = config.deviceModel;
   else this.deviceModel = '';
-  
+
   if (typeof config.homeKitFanType !== 'undefined') this.homeKitFanType = config.homeKitFanType;
   else this.homeKitFanType = 'Fan';
   if (this.homeKitFanType !== 'Fan' && this.homeKitFanType !== 'Fanv2') throw("Unsupported HomeKit fan type '" + this.homeKitFanType + "'. Only 'Fan' or 'Fanv2' types supported for 'homeKitFanType' config field.");
